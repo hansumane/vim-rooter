@@ -255,7 +255,7 @@ endfunction
 function s:current_file()
   let fn = expand('%:p', 1)
   if fn =~ 'NERD_tree_\d\+$' | let fn = b:NERDTree.root.path.str().'/' | endif
-  if fn[:5] == 'oil://' | let fn = fn[5:] | endif
+  if fn[:5] == 'oil://' | let fn = fn[5:].'/' | endif
   if fn[:6] == 'suda://' | let fn = fn[6:] | endif
   if g:rooter_resolve_links | let fn = resolve(fn) | endif
   return fn
